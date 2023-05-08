@@ -1,0 +1,34 @@
+1.1
+a)  stack en el segmento BSS
+    *stack en el heap
+    st1p en el stack
+    stack->pop en el heap porque la estructura fue creada con malloc
+
+b)  student_t
+    0...20 = Name (21*1 = 21 bytes)
+    21...23 = padding
+    24...27 = dni (1*4  = 4 bytes)
+    28...30 = califications (3*1 = 3 bytes)
+    31 = padding
+    32...33 = concept (1*2 = 2 bytes)
+    34...35 = padding
+
+    studentp_t
+    0...20 = name
+    21...23 = dni
+    24...26 = califications
+    27...28 = concept
+
+c) Las porciones de memoria que son pedidas con malloc y que por ende estan en el heap.
+
+1.2
+a) la variable _stackMem. Podria ser tambien el *esp?
+b) Tiene ancho 8 bytes, o 64 bits.
+c) Dibujado en cuaderno jaja
+
+Correccion Nico
+
+Checkpoint 2 y 3 
+Correccion Guada
+
+

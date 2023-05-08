@@ -1,0 +1,41 @@
+Ejercicio 1
+    a) 32 bits pg. 64
+    b) 1 byte pg. 64
+    c) Hay 8 registros de proposito general pg. 73
+    d) el  EIP contiene un pointer hacia la siguiente instruccion que debe ser ejecutada pg. 72, su tamaño es de 32 bits.
+    e) Porque es el tamaño de las direcciones.
+
+Ejercicio 2
+    a) El registro EFLAGS guarda flags que indican sobre el estado del programa ejecutado y permite un limitado control sobre el procesador y tiene un tamaño de 32bits p.73
+    b) Flag de Overflow, posicion : 11 y sirve para ver si hay overflow en la ultima instruccion ejecutada.
+    Flag de Signo, posicion : 7 y indica si el resultado es positivo (0) o si es negativo (1).
+    Flag de interrupt, posicion 9 : indica si el procesador permite interrupciones durante la subrutina.
+    c) Se usa el mismo registro extendido a 64 bits, los 32 bits mas bajos son iguales al EFLAGS y los 32 bits mas altos estan reservados. El registro total (64bits) se llama RFLAGS   
+
+Ejercicio 3
+    a) La pila es necesaria para soportar pg. 66 llamadas a subrutinas y el pasaje de parametros entre procesos o subrutinas.
+    b) Esta ubicada en memoria.
+    a) El registro ESP apunta al ultimo elemento agregado a la pila.
+    b) El registro EBP apunta a la base de la pila, donde se encuentra el puntero a la instruccion a la cual se debe volver si hubo un CALL.
+    c) El registro EIP se pushea al stack al hacer un call y es para tener la direccion de la proxima instruccion a ejecutar una rez realizado el RET.
+    d) Al hacer el RET se popea el EIP, con la direccion de la instruccion guardada al hacer el CALL.
+    e) El programador debe asegurarse de dejar el EBP en donde estaba antes de empezar la rutina y el ESP en la primera posicion,los registros no volatiles tiene que estar como estaban antes de empezar, los registros volatiles pueden tener cualquier valor.
+    f) El ancho de la pila en 32 bits es  32 bits y es 64 bits cuando el ancho de la pila es 64 bits.
+    g) Poder se puede usar, pero no es recomendado porque si hay un error en el codigo se podria arruinar la pila.
+
+    Checkpoint 1
+    Corregido por Edgardo.
+
+Ejercicio 4
+    a) DEC, recibe un solo operando, registro o memoria. tamaño desde 8 bits hasta 64. Decrementa el valor del destino de 1. DEC EAX
+
+    b) ADD, recibe dos operandos, el destino puede ser registro o memoria y la fuente un inmediato, registro o memoria. No se puede memoria y memoria. tamaño desde 8 bits hasta 64 bits,el inmediato no puede ser de 64 bits. Suma el valor del destino con el de la fuente y lo guarda en el destino. ADD EAX, 4
+
+    c) MOV  recibe 2 operandos, el destino puede ser registro o memoria y la fuente registro memoria o inmediato, el destino de 64 bits y la fuente desde 8 hasta 64 bits. Mueve el contenido de la fuente al destino. MOV EAX, [ECX]
+
+    d) JZ recibe un operando, un label de 8 bits o de 32 bits. Le suma al EIP el valor del label relativo a donde esta, si el flag zero esta prendido. JZ loop
+
+    Checkpoint 2
+    Corregido por Mega
+ 
+    

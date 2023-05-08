@@ -1,0 +1,42 @@
+1. a) Una serie de reglas que se deben respetar al momento de llamar una funcion para garantizar el correcto funcionamiento del codigo. Para 64 bits la pila
+esta alineada a 8 bytes, 16 bytes para llamar funciones de C y los registros para la pila son el RSP y el RBP. Para 32 bits la pila esta alineada a 4 bytes,
+16 bytes para llamar funciones de C y los registros para la pila son el ESP y el EBP. Para los registros en 32 bits no se pasa ningun parametro por registro,
+y los registros no volatiles son ebx, ebp, esi , edi y el valor de retorno en el eax. En 64 bits, los registros rbx, rbp, r12, r13, r14, r15 son no volatiles
+y el valor de retorno esta en el rax.
+
+b) En c el compilador toma la responsabilidad de cumplir la convencion de llamada. Mientras que en ASM el programador debe tomar la responsabilidad de
+respetar la convencion de llamada.
+
+c) Un stack frame es la region de la pila comprendida entre los parametros recibidos y el tope de la pila actual. El prologo es el principio de un programa
+de ASM que se encarga de reservar espacio en la pila , se agrega padding y se preserva los valores de los registros no volatiles. El epilolgo es donde
+restauramos los valores de los registros no volatiles y devolvemos la pila a su estado inicial antes del call.
+
+d) En los registros no volatiles o en el espacio del stack de la funcion.
+
+e) Es necesario alinear a 16 bytes. Esta desalineada a 16 bytes y esta alineada a 8 bytes.
+
+f) Los programas se rompen y dejan de funcionar porque van a tomar mal los parametros ya que estan
+organizados de forma distinta. Lo que toma como puntero al array es en realidad el tamaño y vice versa. No va a cambiar nada ya que el tipo de retorno previo
+es compatible (es mas chico) que el tipo de retorno de despues. Los id de los usuarios van a quedar recortados dependiendo de que registro se usa para el ret
+de la funcion. Preguntar sobre el tipo de registro utilizado al devolver el id. En cambiar_nombre, cambia el tipo de retorno? o cambia el tipo del user_id? 
+El de multiplicar se va a romper porque el float lo va a pasar por un xmm y el otro por un registro de proposito general normal y puede que se pierda parte 
+del float. Sigue funcionando el multiplicar porque el dato del float va a ir siempre.
+
+mov xmm, 1.6
+mov rdi,  5 
+call
+
+mov xmm , 5
+mov rdi, 1.6
+
+mov r10, b (int) 
+mov int , a
+
+int32_t multiplicar (float a, int32 b)
+
+int32_t res = multiplicar (a,b);
+
+
+2. a) 
+
+Corregido por Guada
